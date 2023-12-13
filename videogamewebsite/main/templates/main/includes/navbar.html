@@ -1,7 +1,7 @@
 {% load static %}
 <header class="site-header">
-    <nav class="navbar navbar-expand-md navbar-color ">
-        <div class="container">
+    <nav class="navbar navbar-expand-md navbar-color mb-3 ">
+        <div class="container ">
             <!-- Navbar Left Side -->
             <a class="nav-item nav-link" href="/">
                 <img class="navbar-brand" style="width: 50px; height: 55px" src="{% static 'images/favicon.png' %}" alt="logo">
@@ -10,34 +10,61 @@
                 <a class="nav-item nav-link" href="/"><span class="h2 mr-3" style="font-family: fantasy">Game Cave</span></a>
             </div>
             
-            <div class="navbar-nav">
+    
+            {% comment %} <div class="navbar-nav">
                 <a class="nav-item nav-link" href="/">Home</a>
-            </div>
+            </div> {% endcomment %}
             <button aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler ml-auto float-right btncolor" data-target="#navbarToggle" data-toggle="collapse" type="button">
                 <i class="fas fa-bars fa-2x"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <!-- Navbar Left Side -->
-                <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="/">About</a>
-                </div>
+                {% comment %} <div class="navbar-nav mr-auto">
+                </div> {% endcomment %}
                 <!-- Navbar Right Side -->
-                <div class="navbar-nav">
+                 <!-- Search form -->
+                 <div class="flexbox justify-content-start">
+                    <div>
+                        <div class="search">
+                            <form  action="{% url 'search' %}" method="GET">
+                                <input type="text" placeholder="Search by title or platform..." name="search_query">
+                            </form>
+                            {% comment %} <input type="text" placeholder="Search for games by title or platform..." name = "query" required>
+                            <button type="submit"></button> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-nav" style="text-align: right; width: 30vw">
                     {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{%url 'profile' user.username %}">
-                            Welcome, {{user.username}} &nbsp;<i class="fas fa-user"> </i>
-                        </a>
-                        <a class="nav-item nav-link" href="{%url 'logout' %}">
-                            Log out <i class="fas fa-sign-out-alt"></i>
-                        </a>
+                        {% if user.is_superuser %}
+                            <a class="nav-item nav-link" href="/admin/">Admin <i class="fas fa-gear"></i></a>
+                        {% endif %}
+                        <div class="col-auto">
+                            <div class="row-auto d-flex justify-content-end">
+                                <a class="nav-item nav-link" href="{%url 'logout' %}">
+                                    <i class="fas fa-sign-out-alt"></i>&nbsp Log out
+                                </a>
+                            </div>
+                            <div class="row-auto d-flex justify-content-end">
+                                <a class="nav-item nav-link" href="{%url 'profile' user.username %}">
+                                    <i class="fas fa-user"> </i>&nbsp Welcome, {{user.username}} 
+                                </a>
+                            </div>
+                        </div>
                     {% else %}
-                        <a class="nav-item nav-link" href="{%url 'login' %}">
-                            Log in <i class="fas fa-sign-in-alt"></i>
-                        </a>
-                        <a class="nav-item nav-link" href="{%url 'register' %}">
-                            Sign up <i class="fas fa-user-plus"></i>
-                        </a>
+                    <div class="col-auto">
+                        <div class="row-auto d-flex justify-content-end">
+                            <a class="nav-item nav-link" href="{%url 'login' %}">
+                                Log in &nbsp<i class="fas fa-sign-in-alt"></i>
+                            </a>
+                        </div>
+                        <div class="row-auto d-flex justify-content-end">
+                            <a class="nav-item nav-link" href="{%url 'register' %}">
+                                Sign up &nbsp<i class="fas fa-user-plus"> </i>
+                            </a>
+                        </div>
+                    </div>
                     {% endif %}
                 </div>
             </div>

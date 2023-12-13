@@ -1,10 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
 :root {
   --footercolor: #000000;
   --navbarcolor: #000000;
-  --btncolor: #003F72;
-  --socialcolor: #003F72;
+  --btncolor: #d459e1;
+  --socialcolor: #d459e1;
   --brightText: #ffffff;
 }
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.flexbox {
+  /* background: linear-gradient(155deg, #55c7ed, #2bb3e0, #3bc1ed); */
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+
+.search > h3 {
+  font-weight: normal;
+}
+
+.search > h1,
+.search > h3 {
+  color: white;
+  margin-bottom: 15px;
+  /* text-shadow: 0 1px #0091c2; */
+}
+
+.search > form {
+  display: inline-block;
+  position: relative;
+  /* filter: drop-shadow(0 1px #0091c2); */
+}
+
+.search > form:after {
+  content: "";
+  background: white;
+  width: 4px;
+  height: 20px;
+  position: absolute;
+  top: 40px;
+  right: 2px;
+  transform: rotate(135deg);
+}
+
+.search > form > input {
+  color: white;
+  font-size: 16px;
+  background: transparent;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  border: solid 3px white;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+}
+
+.search > form > input::placeholder {
+  color: #ffffff;
+  opacity: 0; 
+  transition: opacity 150ms ease-out;
+}
+
+.search > form > input:hover::placeholder {
+  opacity: 0.5;
+}
+
+.search > form > input:hover,
+.search > form > input:not(:placeholder-shown) {
+  width: 230px;
+}
+
 
 .btncolor {
   background-color: var(--btncolor) !important;
@@ -14,6 +88,17 @@
 .btncolor:hover, .btn-danger:hover{
   color: var(--brightText) !important;
   background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.btn-outline-info{
+  color: var(--btncolor) !important;
+  border-color: var(--btncolor) !important;
+}
+
+.btn-outline-info:hover {
+  color: var(--brightText) !important;
+  background-color: var(--btncolor) !important;
+  border-color: var(--btncolor) !important;
 }
 
 .navbar-color {
@@ -32,17 +117,27 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #000000;
 }
 
 .site-header .navbar-nav .nav-link {
   color: var(--brightText);
 }
 
+.nav-link {
+  font-size: 0.9em;
+
+}
+
+.site-header .navbar-nav .nav-link {
+  transition: transform 0.3s ease-in-out; /* Adjust the duration and timing function as needed */
+}
+
 .site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
+  color: #d459e1;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10%;
+  transform: scale(1.1);
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -58,11 +153,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .article-title {
-  color: #444444;
+  color: #000000;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a.article-title:hover {
-  color: #17a2b8;
+  color: #d459e1;
   text-decoration: none;
 }
 
@@ -107,14 +203,14 @@ a.article-title:hover {
 
 .customhover {
     background: #fff;
-    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    box-shadow: 0 6px 10px rgb(212, 89, 225, .05), 0 0 6px rgb(212, 89, 225, .1);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     cursor: pointer;
 }
 
 .customhover:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(212, 89, 225,.2), 0 4px 8px rgba(212, 89, 225,.1);
 }
 
 @media screen and (min-width: 600px){

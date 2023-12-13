@@ -14,7 +14,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, "Succesful registration! {user.username}")
+            messages.success(request, f"Succesful registration, {user.username}!")
             return redirect('/')
         else:
             for error in list(form.errors.values()):
@@ -48,7 +48,7 @@ def custom_login(request):
             #if the user is authenticated and exists
             if user is not None:
                 login(request, user)
-                messages.success(request, f"Hello <b>{user.username} </b> Succesful login!")
+                messages.success(request, f"Hello <b>{user.username}, </b> login successful!")
                 return redirect("homepage")
         else:
             for error in list(form.errors.values()):

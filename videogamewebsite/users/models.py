@@ -9,7 +9,7 @@ class CustomUser(AbstractUser):
     )
 
     email = models.EmailField(unique=True)
-    status = models.CharField(max_length=100, choices=STATUS, default='regular')
+    status = models.CharField(max_length=100, choices=STATUS, default='user')
     description = models.TextField('Description', max_length=600, default='', blank=True)
 
     def __str__(self):

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Genre, VideoGame, SubGenre
+from django.db.models.query_utils import Q
 
 # Create your views here.
 # def homepage(request):
@@ -17,7 +18,20 @@ from .models import Genre, VideoGame, SubGenre
 #     games = VideoGame.objects.filter(genre=genre, subgenre=subgenre)
 #     genres = Genre.objects.all()  # You may want to pass this for navigation
 #     return render(request, 'games_by_subgenre.html', {'genre': genre, 'subgenre': subgenre, 'games': games, 'genres': genres})
-
+def search(request):
+    search_query = request.GET.get('search_query', '')
+    
+    # Perform the search logic based on your model
+    objects = VideoGame.objects.filter(
+        Q(title__icontains=search_query)|Q(platform__icontains=search_query)
+    )
+    print(objects)
+    return render(
+        request=request,
+        template_name='main/home.html',  # Create this template
+        context={'objects': objects, 'search_query': search_query}
+    )
+    
 def homepage(request):
     matching_genre = Genre.objects.all()
     

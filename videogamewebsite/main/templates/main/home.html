@@ -9,8 +9,8 @@
                     <div class="imgBox aspect-ratio-box">
                         <a href="/{{object.slug}}"><img class="card-img-top product-image mx-auto" style="border-radius:10px" src="{{ object.image.url }}"></a>
                     </div>
-                    <div style=" margin-top: 25px">
-                        <a class="article-title line-clamp-5 title-style" style="font-size: auto; " href="/{{object.slug}}">
+                    <div style=" margin-top: 30px">
+                        <a class="article-title line-clamp-5 " style="font-size: auto; text-decoration: none;" href="/{{object.slug}}">
                             {{ object.title }}
                         </a>
                     </div>
@@ -22,3 +22,22 @@
     {% endfor %}
     </div>
 {% endblock content %}
+
+{% comment %} 
+
+admin username: test
+admin password: test
+admin email:    test@test.test
+
+user username:  Leonardos
+user password:  Mageiros
+user email:     lmageiros@acg.edu    
+
+kind reminder: 
+
+    As instructed, this is a reminder to 
+    not penalize this submission for late
+    submission until 24 hours after the 
+    official submission time.
+
+{% endcomment %}
