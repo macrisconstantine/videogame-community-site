@@ -1,18 +1,16 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
+
 class CustomUser(AbstractUser):
-    
     STATUS = (
-        ('user', 'user'),
-        ('admin', 'admin'),
-        ('superadmin', 'superadmin'),
+        ('user','user'),
+        ('admin','admin'),
     )
-    
+
     email = models.EmailField(unique=True)
-    status = models.CharField(max_length=100, choices=STATUS, default='user')
-    description = models.TextField('description', max_length=600, default='', blank=True)
-    
+    status = models.CharField(max_length=100, choices=STATUS, default='regular')
+    description = models.TextField('Description', max_length=600, default='', blank=True)
+
     def __str__(self):
         return self.username

@@ -5,13 +5,13 @@
         <div class="d-flex">
             <div>
                 <h1 class="title-style">{{ object.title }}</h1>
-                <h2 class="subtitle-style">{{ object.slug }}</h2>
+                <h5 class="subtitle-style">{{ object.release_date }}</h5>
             </div>
         </div>
     </div>
     <div class="col-lg-9 col-md-12 col-sm-12" id="content">
         <div class="article-style">
-            {{ object.content|safe }}
+            {{ object.description|safe }}
         </div>
     </div>
 {% endblock content %}
