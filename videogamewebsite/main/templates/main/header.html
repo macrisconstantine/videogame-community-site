@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Link to page favicon.ico to display in location Bar-->
-    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
 
     <!-- Bootstrap CSS -->  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -19,7 +19,7 @@
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/main/main.css' %}">
 
     <!-- Jquery JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -47,7 +47,7 @@
         </div>
     </main>
     <!-- Prism JS -->
-    <script src="{% static 'prism.js' %}"></script>
+    {% comment %} <script src="{% static 'prism.js' %}"></script> {% endcomment %}
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
@@ -55,6 +55,6 @@
         crossorigin="anonymous"></script>
 
     <!-- Optional JavaScript -->
-    <script type="text/javascript" src="{% static 'main/prism.js' %}"></script>
+    {% comment %} <script type="text/javascript" src="{% static 'main/prism.js' %}"></script> {% endcomment %}
 </body>
 </html>

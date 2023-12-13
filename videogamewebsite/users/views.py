@@ -35,6 +35,7 @@ def custom_logout (request):
     logout(request)
     messages.info(request, "You have logged out from your account!")
     return redirect("homepage")
+
 @user_not_authenticated
 def custom_login(request):
     if request.method== "POST":
