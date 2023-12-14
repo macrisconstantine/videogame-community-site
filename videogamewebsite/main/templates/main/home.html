@@ -3,28 +3,32 @@
 {% block content %}
 <div class="col-auto">
     
+    <!-- Welcome Message -->
     <div class="d-flex justify-content-center">
         <span class="lead pt-2" style=" font-size: 3em; color: #d459e1">Welcome to the Game Cave!</span>
     </div>
     <b class="hr anim"></b>
  
-    <!--Custom Search form -->
+    <!-- Custom Search form -->
     <div class="d-flex justify-content-center pb-2">
         <div>
             <div class="search">
                 <form  action="{% url 'search' %}" method="GET">
                     <input type="text" placeholder="Search by title or platform..." name="search_query">
                 </form>
-             
             </div>
         </div>
     </div>
     <b class="hr anim"></b>
 
+    <!-- Browse Video Games Section -->
     <div class="d-flex justify-content-center mb-3">
         <span class="lead" style=" font-size: 3em">Browse Video Game{{ objects.0.class_name }}</span>
     </div>
     
+    {% comment %} Loops through all the objects (videogams, genres, or subgenres)
+                    and displays them in a grid.                
+    {% endcomment %}
     <div class="row justify-content-center">
         {% for object in objects %}
         <div class="col-auto m-3">
@@ -44,9 +48,15 @@
         {% endfor %}
     </div>
     <b class="hr anim"></b>
+
+    <!-- Recommended Titles Section -->
     <div class="d-flex justify-content-center mb-3">
         <span class="lead" style=" font-size: 2em">Titles we recommend {{user.username}} based on the platforms you like.</span>
     </div>
+    
+    {% comment %} Loops through all the recommended games and displays them in a grid, if the user is authenticated.
+                If the user is not authenticated, a message is displayed.               
+    {% endcomment %}
     <div class="row justify-content-center mb-5">
         {% if recommended_games %}
             {% for game in recommended_games %}
@@ -67,10 +77,17 @@
             {% endfor %}
         {% else %}
             {% if user.is_authenticated %}  
-                <div class="h5 flexbox justify-content-center title-style text-muted m-5"> <div>Start browsing to populate your recommendations.</div> </div>
+                <!-- Message for Authenticated Users -->
+                <div class="h5 flexbox justify-content-center title-style text-muted m-5"> 
+                    <div>Start browsing to populate your recommendations.</div> 
+                </div>
             {% else %}
-                <div class="h5 flexbox justify-content-center title-style text-muted m-5"> <div style="text-align: center; color: #d459e1">
-                    Recommendations are only available for registered members.<br><br> Register today!</div> </div>
+                <!-- Message for Non-Authenticated Users -->
+                <div class="h5 flexbox justify-content-center title-style text-muted m-5"> 
+                    <div style="text-align: center; color: #d459e1">
+                        Recommendations are only available for registered members.<br><br> Register today!
+                    </div> 
+                </div>
             {% endif %}
         {% endif %}
     </div>

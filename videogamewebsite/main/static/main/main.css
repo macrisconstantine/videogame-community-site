@@ -17,7 +17,7 @@
   
 }
 
-
+/* Animated customized hr divider line defined below */
 .hr {
   width: 100%;
   height: 1px;
@@ -91,6 +91,7 @@
           animation-duration: 2s;
 }
 
+
 .editorial {
   display: block;
   width: 100%;
@@ -104,6 +105,7 @@
   float:left;
 }
 
+/* Parallax effect on animated waves on footer */
 .parallax1 > use {
   animation: move-forever1 10s linear infinite;
   &:nth-child(1) {
@@ -189,6 +191,7 @@
   opacity: 100%;
 }
 
+/* Custom search form functionality described below */
 .search > h3 {
   font-weight: normal;
 }

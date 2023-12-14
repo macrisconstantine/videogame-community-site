@@ -20,11 +20,15 @@ from django.conf.urls.static import static
 from django.urls import path, include
 
 urlpatterns = [
+    # This code would not work until I swapped the order of the two paths below.
+    # I may have spent 3 or 4 hours trying to get the registration pages to render
     path('', include('users.urls')),
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
     
 ]
+
+# I don't completely understand this line here but the tutorial man did it.
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

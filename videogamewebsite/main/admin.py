@@ -2,6 +2,8 @@ from django.contrib import admin
 from .models import Genre, VideoGame, SubGenre, UserClick
 
 
+# Customize the admin interface for each model
+
 class VideoGameAdmin(admin.ModelAdmin):
     list_display = ('title', 'genre', 'subgenre', 'release_date', 'created_by', 'average_rating', 'platform',)
     list_filter = ('genre', 'subgenre', 'release_date', 'created_by', 'average_rating', 'platform',)

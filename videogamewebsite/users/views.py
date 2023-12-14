@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .decorators import user_not_authenticated
 
 
-# Create your views here.
+# Register view is called if the user is not authenticated and paths to the register view
 @user_not_authenticated
 def register(request):
     if request.method== "POST":
@@ -42,6 +42,8 @@ def custom_login(request):
         form = UserLoginForm(request=request, data=request.POST)
         if form.is_valid():
             user = authenticate (
+                
+                # Cleaned data for security purposes
                 username=form.cleaned_data["username"], 
                 password=form.cleaned_data["password"],
             )
@@ -61,6 +63,7 @@ def custom_login(request):
         context={"form":form}
     )
 
+# Renders the profile page details according to the current user
 def profile(request, username):
     if request.method== 'POST':
         user= request.user

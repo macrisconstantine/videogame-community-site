@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, SetPasswordForm
 from django.contrib.auth import get_user_model
 
+
+# These classes are used to create forms for the user registration and login
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(help_text="Insert a valid e-mail address", required=True)  
     class Meta:
@@ -24,6 +26,8 @@ class UserLoginForm(AuthenticationForm):
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'placeholder':'Password'}))
     
+    
+# These classes create the forms for updating user and password info
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
     

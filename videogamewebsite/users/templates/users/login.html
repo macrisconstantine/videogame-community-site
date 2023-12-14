@@ -1,6 +1,10 @@
 {% extends "main/header.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% comment %} These four htmls (login/logout/profile/register)
+            are largely based on existing code from a tutorial,
+            with some aeshetic changes to fit my project.    
+{% endcomment %}
     <div class="content-section m-5" style="border-radius:3vh;">
         <form method="POST">
             {% csrf_token %}
