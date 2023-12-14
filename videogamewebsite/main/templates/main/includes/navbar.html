@@ -1,10 +1,11 @@
 {% load static %}
-
+{% comment %} Navbar file included in header and extended to entire website {% endcomment %}
 <header class="site-header">
     
     <nav class="navbar navbar-expand-md navbar-color mb-3 p-3 ">
         
         <div class="container ">
+
             <!-- Navbar Left Side -->
             <a class="nav-item nav-link" href="/">
                 <img class="navbar-brand" style="width: 70px; height: 75px" src="{% static 'images/favicon.png' %}" alt="logo">
@@ -13,7 +14,7 @@
                 <a class="nav-item nav-link" href="/"><span  style="font-size:2.8em; font-family: fantasy;">Game Cave</span></a>
             </div>
             
-
+            {% comment %} Collapses into dropdown menu when scale is too small {% endcomment %}
             <button aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler ml-auto float-right btncolor" data-target="#navbarToggle" data-toggle="collapse" type="button">
                 <i class="fas fa-bars fa-2x"></i>
@@ -22,7 +23,11 @@
         
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav ml-auto">
+
+                    {% comment %} Checks if user is authenticated or authenticated as admin to display the appropriate UI options {% endcomment %}
                     {% if user.is_authenticated %}
+
+                        {% comment %} Admin can of course access the admin panel  {% endcomment %}
                         {% if user.is_superuser %}
                             <a class="nav-item nav-link" href="/admin/">Admin <i class="fas fa-gear"></i></a>
                         {% endif %}
@@ -39,6 +44,8 @@
                             </div>
                         </div>
                     {% else %}
+
+                    {% comment %} Non-authenticated can either login or register  {% endcomment %}
                     <div class="col-auto">
                         <div class="row-auto d-flex justify-content-end">
                             <a class="nav-item nav-link" href="{%url 'login' %}">

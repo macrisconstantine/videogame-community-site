@@ -1,21 +1,27 @@
 {% if messages %}
+    {# Iterate over each message in the messages list #}
     {% for message in messages %}
+        {# Check the tag of each message and apply a specific style based on the tag #}
         {% if message.tags == 'success' %}
+            {# Display a success message with a green background #}
             <div class="alert alert-success alert-dismissible" role="alert">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 {{ message|safe|escape }}
             </div>
         {% elif message.tags == 'error' %}
+            {# Display an error message with a red background #}
             <div class="alert alert-danger alert-dismissible" role="alert">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 {{ message|safe|escape }}
             </div>
         {% elif message.tags == 'info' %}
+            {# Display an info message with a blue background #}
             <div class="alert alert-info alert-dismissible" role="alert">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 {{ message|safe|escape }}
             </div>
         {% elif message.tags == 'warning' %}
+            {# Display a warning message with a yellow background #}
             <div class="alert alert-warning alert-dismissible" role="alert">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 {{ message|safe|escape }}

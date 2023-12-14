@@ -12,19 +12,16 @@ $(document).ready(function () {
                 // Update the display with the new average rating
                 $('p#average-rating').text(`Average Rating: ${data.average_rating}`);
                 $('p#total-ratings').text(`Total Ratings: ${data.total_ratings}`);
-                location.reload();
+                location.reload();  // Consider whether a full page reload is necessary
 
-                // Update the clicked star and previous stars
             },
             error: function () {
                 console.error('Failed to rate the game.');
             }
         });
-
-        
     });
 
-    //  // Function to update stars based on the clicked star
+    // Consider uncommenting and using the following function to update stars based on the clicked star
     // function updateStars(clickedStar) {
     //     // Reset all stars to default state
     //     $('.star').removeClass('fas').addClass('far');

@@ -1,39 +1,45 @@
 {% extends "main/header.html" %}
 {% load static %}
+
 {% block content %}
-<div class="row-auto media content-section mobiledevice p-3 m-5" style="border-radius:5vh;">
+<!-- Main content section -->
+<div class="row-auto media content-section mobiledevice p-3 m-5" style="border-radius: 5vh;">
     <div class="col-auto">
+        <!-- Game image and rating information -->
         <div class="row-auto imgBox mt-3 mb-3">
-            <img style="border-radius:10px; width: 300px; height 260px;" src="{{ object.image.url }}">
+            <img style="border-radius: 10px; width: 300px; height: 260px;" src="{{ object.image.url }}">
         </div>
         <div class="row-auto mt-4 mr-3">
             <!-- Display the current average rating -->
-            <p class="h3 title-style text-muted pl-1" style="font-family: fantasy;"> Total Ratings:  {{ object.total_ratings }} </p>
-            <p class="h3 title-style text-muted pl-1" style="font-family: fantasy;"> Average Rating:  {{ object.average_rating }}/5 </p>
-        
+            <p class="h3 title-style text-muted pl-1" style="font-family: fantasy;"> Total Ratings: {{ object.total_ratings }} </p>
+            <p class="h3 title-style text-muted pl-1" style="font-family: fantasy;"> Average Rating: {{ object.average_rating }}/5 </p>
+
             <!-- Display stars for rating -->
             <div id="star-rating-container">
                 {% for x in "12345" %}
-                    <span >
+                    <!-- Star icons with data attributes for rating and game ID -->
+                    <span>
                         <img class="star" data-value="{{ x }}" data-game-id="{{ object.id }}" style="width: 55px; height: 55px" src="{% static 'images/favicon.png' %}" alt="logo">
                     </span>
                 {% endfor %}
             </div>
         </div>
     </div>
-    <div class="col-lg mt-3" >
+    <div class="col-lg mt-3">
+        <!-- Game title and platform -->
         <div class="row-auto">
             <p class="h1 title-style mb-4" style="font-family: fantasy">{{ object.title }} <br><small class="text-muted">({{ object.platform }})</small></p>
         </div>
+        <!-- Release date -->
         <div class="row-auto">
             <h5 class="title-style text-muted mb-4">Released: {{ object.release_date }}</h5>
         </div>
 
+        <!-- Game description -->
         <div class="row-auto" id="content">
             {{ object.description|safe }}
         </div>
     </div>
 </div>
-     <!-- Star Ratings Section -->
-    
+<!-- Star Ratings Section -->
 {% endblock content %}

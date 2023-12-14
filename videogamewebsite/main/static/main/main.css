@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 @import url(https://fonts.googleapis.com/css?family=Lato:100);
 
+/* This css file borrows code snippets from many sources
+  as well as lots of customized work to produce the site's 
+  aesthetic design. */
+
 
 :root {
   --footercolor: #d459e1;
@@ -31,12 +35,14 @@
   bottom: 50%;
   left: 0;
 }
+
 .hr:before {
   background: linear-gradient(90deg, #ffffff 0%, #ffffff 50%, transparent 50%, transparent 100%);
   background-size: 15px;
   background-position: center;
   z-index: 1;
 }
+
 .hr:after {
   transition: opacity 0.3s ease, -webkit-animation 0.3s ease;
   transition: opacity 0.3s ease, animation 0.3s ease;
@@ -47,6 +53,7 @@
   -webkit-animation: bar 10s linear infinite;
           animation: bar 10s linear infinite;
 }
+
 @-webkit-keyframes bar {
   0% {
     background-position: 0%;
@@ -55,6 +62,7 @@
     background-position: 200%;
   }
 }
+
 @keyframes bar {
   0% {
     background-position: 0%;
@@ -72,15 +80,16 @@
   -webkit-animation: bar 120s linear infinite;
           animation: bar 120s linear infinite;
 }
+
 .hr.anim:hover:before {
   -webkit-animation-duration: 20s;
           animation-duration: 20s;
 }
+
 .hr.anim:hover:after {
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
 }
-
 
 .editorial {
   display: block;
@@ -101,24 +110,28 @@
     animation-delay: -2s;
   }
 }
+
 .parallax2 > use {
   animation: move-forever2 8s linear infinite;
   &:nth-child(1) {
     animation-delay: -2s;
   }
 }
+
 .parallax3 > use {
   animation: move-forever3 6s linear infinite;
   &:nth-child(1) {
     animation-delay: -2s;
   }
 }
+
 .parallax4 > use {
   animation: move-forever4 4s linear infinite;
   &:nth-child(1) {
     animation-delay: -2s;
   }
 }
+
 @keyframes move-forever1 {
   0% {
     transform: translate(85px, 0%);
@@ -151,8 +164,6 @@
     transform: translate(85px, 0%);
   }
 }
-
-
 
 .flexbox {
   /* background: linear-gradient(155deg, #55c7ed, #2bb3e0, #3bc1ed); */
