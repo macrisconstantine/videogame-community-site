@@ -1,4 +1,5 @@
 {% load static %}
+
 <header class="site-header">
     
     <nav class="navbar navbar-expand-md navbar-color mb-3 p-3 ">
@@ -8,22 +9,17 @@
             <a class="nav-item nav-link" href="/">
                 <img class="navbar-brand" style="width: 70px; height: 75px" src="{% static 'images/favicon.png' %}" alt="logo">
             </a>
-            <div class="lead navbar-nav">
+            <div class="">
                 <a class="nav-item nav-link" href="/"><span  style="font-size:2.5em; font-family: fantasy;">Game Cave</span></a>
             </div>
             
-    
-            {% comment %} <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/">Home</a>
-            </div> {% endcomment %}
+
             <button aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler ml-auto float-right btncolor" data-target="#navbarToggle" data-toggle="collapse" type="button">
                 <i class="fas fa-bars fa-2x"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
-                <!-- Navbar Left Side -->
-                {% comment %} <div class="navbar-nav mr-auto">
-                </div> {% endcomment %}
+        
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}

@@ -7,9 +7,7 @@
         <span class="lead pt-2" style=" font-size: 3em; color: #d459e1">Welcome to the Game Cave!</span>
     </div>
     <b class="hr anim"></b>
-    {% comment %} <div class="d-flex justify-content-center">
-        <span class="lead pt-2" style=" font-size: 2em; color: #d95be6">Search for games</span>
-    </div> {% endcomment %}
+ 
     <!--Custom Search form -->
     <div class="d-flex justify-content-center pb-2">
         <div>
@@ -25,7 +23,7 @@
     <b class="hr anim"></b>
 
     <div class="d-flex justify-content-center mb-3">
-        <span class="lead" style=" font-size: 3em">Browse Game{{ objects.0.class_name }}</span>
+        <span class="lead" style=" font-size: 3em">Browse Video Game{{ objects.0.class_name }}</span>
     </div>
     
     <div class="row justify-content-center">
@@ -48,7 +46,7 @@
     </div>
     <b class="hr anim"></b>
     <div class="d-flex justify-content-center mb-3">
-        <span class="lead" style=" font-size: 2em">Recommended for you, {{ user.username }}, based on the platforms you like.</span>
+        <span class="lead" style=" font-size: 2em">Titles we recommend {{user.username}} based on the platforms you like.</span>
     </div>
     <div class="row justify-content-center mb-5">
         {% if recommended_games %}
@@ -72,7 +70,7 @@
             {% if user.is_authenticated %}  
                 <div class="h5 flexbox justify-content-center title-style text-muted m-5"> <div>Start browsing to populate your recommendations.</div> </div>
             {% else %}
-                <div class="h5 flexbox justify-content-center title-style text-muted m-5"> <div style="text-align: center">
+                <div class="h5 flexbox justify-content-center title-style text-muted m-5"> <div style="text-align: center; color: #d459e1">
                     Recommendations are only available for registered members.<br><br> Register today!</div> </div>
             {% endif %}
         {% endif %}
