@@ -1,13 +1,15 @@
 {% load static %}
 <header class="site-header">
-    <nav class="navbar navbar-expand-md navbar-color mb-3 ">
+    
+    <nav class="navbar navbar-expand-md navbar-color mb-3 p-3 ">
+        
         <div class="container ">
             <!-- Navbar Left Side -->
             <a class="nav-item nav-link" href="/">
-                <img class="navbar-brand" style="width: 50px; height: 55px" src="{% static 'images/favicon.png' %}" alt="logo">
+                <img class="navbar-brand" style="width: 70px; height: 75px" src="{% static 'images/favicon.png' %}" alt="logo">
             </a>
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/"><span class="h2 mr-3" style="font-family: fantasy">Game Cave</span></a>
+            <div class="lead navbar-nav">
+                <a class="nav-item nav-link" href="/"><span  style="font-size:2.5em; font-family: fantasy;">Game Cave</span></a>
             </div>
             
     
@@ -23,19 +25,7 @@
                 {% comment %} <div class="navbar-nav mr-auto">
                 </div> {% endcomment %}
                 <!-- Navbar Right Side -->
-                 <!-- Search form -->
-                 <div class="flexbox justify-content-start">
-                    <div>
-                        <div class="search">
-                            <form  action="{% url 'search' %}" method="GET">
-                                <input type="text" placeholder="Search by title or platform..." name="search_query">
-                            </form>
-                            {% comment %} <input type="text" placeholder="Search for games by title or platform..." name = "query" required>
-                            <button type="submit"></button> {% endcomment %}
-                        </div>
-                    </div>
-                </div>
-                <div class="navbar-nav" style="text-align: right; width: 30vw">
+                <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
                             <a class="nav-item nav-link" href="/admin/">Admin <i class="fas fa-gear"></i></a>
@@ -70,4 +60,5 @@
             </div>
         </div>
     </nav>
+
 </header>

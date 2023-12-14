@@ -1,10 +1,36 @@
 {% extends "main/header.html" %}
 {% load static %}
 {% block content %}
-<span class="h2 mr-3" style="font-family: fantasy">Video Game {{object|verbose_name}}</span>
-<div class="row display-flex justify-content-center m-5">
-    {% for object in objects %}
-        <div class="col-lg-4 col-md-6 col-sm-12 mobiledevice">
+<div class="col-auto">
+    
+    <div class="d-flex justify-content-center">
+        <span class="lead pt-2" style=" font-size: 3em; color: #d459e1">Welcome to the Game Cave!</span>
+    </div>
+    <b class="hr anim"></b>
+    {% comment %} <div class="d-flex justify-content-center">
+        <span class="lead pt-2" style=" font-size: 2em; color: #d95be6">Search for games</span>
+    </div> {% endcomment %}
+    <!--Custom Search form -->
+    <div class="d-flex justify-content-center pb-2">
+        <div>
+            <div class="search">
+                <form  action="{% url 'search' %}" method="GET">
+                    <input type="text" placeholder="Search by title or platform..." name="search_query">
+                </form>
+                {% comment %} <input type="text" placeholder="Search for games by title or platform..." name = "query" required>
+                <button type="submit"></button> {% endcomment %}
+            </div>
+        </div>
+    </div>
+    <b class="hr anim"></b>
+
+    <div class="d-flex justify-content-center mb-3">
+        <span class="lead" style=" font-size: 3em">Browse Game{{ objects.0.class_name }}</span>
+    </div>
+    
+    <div class="row justify-content-center">
+        {% for object in objects %}
+        <div class="col-auto m-3">
             <card class="media content-section customhover" style="border-radius: 5%; width: 225px; height: 225px; text-align: center">
                 <div class="media-body">
                     <div class="imgBox aspect-ratio-box">
@@ -18,10 +44,40 @@
                 </div>
             </card>
         </div>
-        <div>
-        </div>
-    {% endfor %}
+        {% endfor %}
     </div>
+    <b class="hr anim"></b>
+    <div class="d-flex justify-content-center mb-3">
+        <span class="lead" style=" font-size: 2em">Recommended for you, {{ user.username }}, based on the platforms you like.</span>
+    </div>
+    <div class="row justify-content-center mb-5">
+        {% if recommended_games %}
+            {% for game in recommended_games %}
+                <div class="col-auto m-3">
+                    <card class="media content-section customhover" style="border-radius: 5%; width: 225px; height: 225px; text-align: center">
+                        <div class="media-body">
+                            <div class="imgBox aspect-ratio-box">
+                                <a href="/{{game.slug}}"><img class="card-img-top product-image mx-auto" style="border-radius:10px" src="{{ game.image.url }}"></a>
+                            </div>
+                            <div style=" margin-top: 33px">
+                                <a class="article-title line-clamp-5 " style="font-size: auto; text-decoration: none;" href="/{{game.slug}}">
+                                    {{ game.title }}
+                                </a>
+                            </div>
+                        </div>
+                    </card>
+                </div>
+            {% endfor %}
+        {% else %}
+            {% if user.is_authenticated %}  
+                <div class="h5 flexbox justify-content-center title-style text-muted m-5"> <div>Start browsing to populate your recommendations.</div> </div>
+            {% else %}
+                <div class="h5 flexbox justify-content-center title-style text-muted m-5"> <div style="text-align: center">
+                    Recommendations are only available for registered members.<br><br> Register today!</div> </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
 {% endblock content %}
 
 {% comment %} 

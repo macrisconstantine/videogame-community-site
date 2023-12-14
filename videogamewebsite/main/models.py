@@ -3,6 +3,9 @@ from django.contrib.auth import get_user_model
 from tinymce.models import HTMLField
 from django.template.defaultfilters import slugify
 import os
+import users
+from users.models import CustomUser
+
 
 class Genre(models.Model):
     def image_upload_to(self, instance=None):
@@ -13,7 +16,7 @@ class Genre(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField("Genre slug", null=True, blank=True, unique=True)
     image = models.ImageField(null=False, blank=False, upload_to=image_upload_to ,max_length=255)
-
+    class_name = " Genres"
 
     def __str__(self):
         return self.title
@@ -31,8 +34,8 @@ class SubGenre(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, null=True)
     subgenre_slug = models.SlugField("Subgenre slug", null=True, blank=True, unique=True)
     image = models.ImageField(null=False, blank=False, upload_to=image_upload_to ,max_length=255)
+    class_name = " Subgenres"
     
-
     def __str__(self):
         return self.title
     
@@ -57,12 +60,13 @@ class VideoGame(models.Model):
     game_slug = models.SlugField("Game slug", null=False, blank=False, unique=True)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     subgenre = models.ForeignKey(SubGenre, on_delete=models.CASCADE)
-    created_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    created_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='created_games')
     image= models.ImageField(upload_to=image_upload_to, max_length=255, null=False, blank=False)
     average_rating = models.DecimalField(max_digits=3, decimal_places=1, default=0.0)
     total_ratings = models.PositiveIntegerField(default=0)
+    clicks = models.ManyToManyField(get_user_model(), through='UserClick', related_name='clicked_games')
+    class_name = "s"
     
-
     def __str__(self):
         return self.title
     
@@ -73,3 +77,11 @@ class VideoGame(models.Model):
     class Meta:
         verbose_name_plural = "Video games"
         ordering = ['-release_date']
+        
+class UserClick(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    game = models.ForeignKey(VideoGame, on_delete=models.CASCADE)
+    click_timestamp = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.user.username + " clicked " + self.game.title

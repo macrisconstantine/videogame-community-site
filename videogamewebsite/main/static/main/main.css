@@ -1,17 +1,159 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+@import url(https://fonts.googleapis.com/css?family=Lato:100);
+
 
 :root {
-  --footercolor: #000000;
-  --navbarcolor: #000000;
+  --footercolor: #d459e1;
+  --navbarcolor: #d459e1;
   --btncolor: #d459e1;
   --socialcolor: #d459e1;
   --brightText: #ffffff;
+  --bg: #696B89;
+  --barsize: 15px;
+  
 }
 
-html, body {
+
+.hr {
   width: 100%;
-  height: 100%;
+  height: 1px;
+  display: inline-flex;
+  position: relative;
+  margin-bottom: 0em;
+  padding: 2.5em 0;
 }
+
+.hr:after, .hr:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 50%;
+  left: 0;
+}
+.hr:before {
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 50%, transparent 50%, transparent 100%);
+  background-size: 15px;
+  background-position: center;
+  z-index: 1;
+}
+.hr:after {
+  transition: opacity 0.3s ease, -webkit-animation 0.3s ease;
+  transition: opacity 0.3s ease, animation 0.3s ease;
+  transition: opacity 0.3s ease, animation 0.3s ease, -webkit-animation 0.3s ease;
+  background: linear-gradient(to right, #7e3487 5%, #ff64f9 15%, #ff63e4 25%, #511951 35%, #d459e1 45%, #c33bc3 55%,  #7e3487 65%, #5b2661 75%, #511951 85%,  #2c0e2c 95%);
+  background-size: 100%;
+  background-position: 0%;
+  -webkit-animation: bar 10s linear infinite;
+          animation: bar 10s linear infinite;
+}
+@-webkit-keyframes bar {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+@keyframes bar {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+.hr.anim:before {
+  background: linear-gradient(90deg, #10111F 0%, #10111F 5%, transparent 5%, transparent 10%, #10111F 10%, #10111F 15%, transparent 15%, transparent 20%, #10111F 20%, #10111F 25%, transparent 25%, transparent 30%, #10111F 30%, #10111F 35%, transparent 35%, transparent 40%, #10111F 40%, #10111F 45%, transparent 45%, transparent 50%, #10111F 50%, #10111F 55%, transparent 55%, transparent 60%, #10111F 60%, #10111F 65%, transparent 65%, transparent 70%, #10111F 70%, #10111F 75%, transparent 75%, transparent 80%, #10111F 80%, #10111F 85%, transparent 85%, transparent 90%, #10111F 90%, #10111F 95%, transparent 95%, transparent 100%);
+  background-size: 150px;
+  background-position: center;
+  z-index: 1;
+  -webkit-animation: bar 120s linear infinite;
+          animation: bar 120s linear infinite;
+}
+.hr.anim:hover:before {
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+}
+.hr.anim:hover:after {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+
+
+.editorial {
+  display: block;
+  width: 100%;
+  height: 60px;
+  max-height: 60px;
+  margin: 0;
+  z-index:5;
+  bottom:0;
+  position:relative;
+  left:0px;
+  float:left;
+}
+
+.parallax1 > use {
+  animation: move-forever1 10s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -2s;
+  }
+}
+.parallax2 > use {
+  animation: move-forever2 8s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -2s;
+  }
+}
+.parallax3 > use {
+  animation: move-forever3 6s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -2s;
+  }
+}
+.parallax4 > use {
+  animation: move-forever4 4s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -2s;
+  }
+}
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+@keyframes move-forever3 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+@keyframes move-forever4 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+
 
 .flexbox {
   /* background: linear-gradient(155deg, #55c7ed, #2bb3e0, #3bc1ed); */
@@ -56,7 +198,7 @@ html, body {
 
 .search > form:after {
   content: "";
-  background: white;
+  background: #d95be6;
   width: 4px;
   height: 20px;
   position: absolute;
@@ -66,31 +208,32 @@ html, body {
 }
 
 .search > form > input {
-  color: white;
+  color: #d95be6;
   font-size: 16px;
   background: transparent;
   width: 48px;
   height: 48px;
   padding: 10px;
-  border: solid 3px white;
+  border: solid 3px #d95be6;
   outline: none;
   border-radius: 35px;
   transition: width 0.5s;
 }
 
 .search > form > input::placeholder {
-  color: #ffffff;
+  color: #d95be6;
   opacity: 0; 
   transition: opacity 150ms ease-out;
 }
 
 .search > form > input:hover::placeholder {
   opacity: 0.5;
+  padding: 5px;
 }
 
 .search > form > input:hover,
 .search > form > input:not(:placeholder-shown) {
-  width: 230px;
+  width: 350px;
 }
 
 
@@ -140,16 +283,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
   font-size: 0.9em;
-
+  color: var(--brightText);
+  
 }
 
 .site-header .navbar-nav .nav-link {
   transition: transform 0.3s ease-in-out; /* Adjust the duration and timing function as needed */
+  color: var(--brightText);
+
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #d459e1;
-  background-color: rgba(0, 0, 0, 0.1);
+  color: #10111f;
   border-radius: 10%;
   transform: scale(1.1);
 }
@@ -219,14 +364,14 @@ a.article-title:hover {
 
 .customhover {
     background: #fff;
-    box-shadow: 0 6px 10px rgb(212, 89, 225, .05), 0 0 6px rgb(212, 89, 225, .1);
-    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    box-shadow: 0 6px 10px rgb(212, 89, 225, .5), 0 0 6px rgb(212, 89, 225, 11);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.2),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.4);
     cursor: pointer;
 }
 
 .customhover:hover {
     transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(212, 89, 225,.2), 0 4px 8px rgba(212, 89, 225,.1);
+    box-shadow: 0 10px 20px rgba(212, 89, 225,.5), 0 4px 8px rgba(212, 89, 225, 1);
 }
 
 @media screen and (min-width: 600px){
@@ -306,4 +451,17 @@ a.article-title:hover {
   width: 125px;
   height: 125px;
   padding: 5px;
+}
+body {
+  background: #10111F;
+  color: #696B89;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
+
+.article-title {
+  color: #2b2b2b;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 500  ;
 }

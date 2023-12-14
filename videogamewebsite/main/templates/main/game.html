@@ -1,7 +1,7 @@
 {% extends "main/header.html" %}
 {% load static %}
 {% block content %}
-<div class="row-auto media content-section mobiledevice p-3 m-3">
+<div class="row-auto media content-section mobiledevice p-3 m-5" style="border-radius:5vh;">
     <div class="col-auto">
         <div class="row-auto imgBox mt-3 mb-3">
             <img style="border-radius:10px; width: 300px; height 260px;" src="{{ object.image.url }}">
@@ -21,17 +21,16 @@
             </div>
         </div>
     </div>
-    <div class="col-auto mt-3">
+    <div class="col-lg mt-3" >
         <div class="row-auto">
-            <div>
-                <p class="h1 title-style" style="font-family: fantasy">{{ object.title }} <small class="text-muted">({{ object.platform }})</small></p>
-                <h5 class="subtitle-style">Released: {{ object.release_date }}</h5>
-            </div>
+            <p class="h1 title-style mb-4" style="font-family: fantasy">{{ object.title }} <br><small class="text-muted">({{ object.platform }})</small></p>
         </div>
-        <div class="row-auto" style="width:40vw"id="content">
-            <div class="article-style">
-                {{ object.description|safe }}
-            </div>
+        <div class="row-auto">
+            <h5 class="title-style text-muted mb-4">Released: {{ object.release_date }}</h5>
+        </div>
+
+        <div class="row-auto" id="content">
+            {{ object.description|safe }}
         </div>
     </div>
 </div>
