@@ -7,7 +7,7 @@ import os
 class Genre(models.Model):
     def image_upload_to(self, instance=None):
         if instance:
-            return os.path.join("ArticleSeries", slugify(self.slug), instance)
+            return os.path.join("Genre", slugify(self.slug), instance)
         return None
     
     title = models.CharField(max_length=100)
@@ -59,6 +59,8 @@ class VideoGame(models.Model):
     subgenre = models.ForeignKey(SubGenre, on_delete=models.CASCADE)
     created_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     image= models.ImageField(upload_to=image_upload_to, max_length=255, null=False, blank=False)
+    average_rating = models.DecimalField(max_digits=3, decimal_places=1, default=0.0)
+    total_ratings = models.PositiveIntegerField(default=0)
     
 
     def __str__(self):

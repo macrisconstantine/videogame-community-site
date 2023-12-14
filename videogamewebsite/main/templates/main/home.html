@@ -1,7 +1,8 @@
 {% extends "main/header.html" %}
 {% load static %}
 {% block content %}
-    <div class="row display-flex justify-content-center m-5">
+<span class="h2 mr-3" style="font-family: fantasy">Video Game {{object|verbose_name}}</span>
+<div class="row display-flex justify-content-center m-5">
     {% for object in objects %}
         <div class="col-lg-4 col-md-6 col-sm-12 mobiledevice">
             <card class="media content-section customhover" style="border-radius: 5%; width: 225px; height: 225px; text-align: center">
@@ -9,7 +10,7 @@
                     <div class="imgBox aspect-ratio-box">
                         <a href="/{{object.slug}}"><img class="card-img-top product-image mx-auto" style="border-radius:10px" src="{{ object.image.url }}"></a>
                     </div>
-                    <div style=" margin-top: 30px">
+                    <div style=" margin-top: 33px">
                         <a class="article-title line-clamp-5 " style="font-size: auto; text-decoration: none;" href="/{{object.slug}}">
                             {{ object.title }}
                         </a>
@@ -30,7 +31,7 @@ admin password: test
 admin email:    test@test.test
 
 user username:  Leonardos
-user password:  Mageiros
+user password:  djangoishard
 user email:     lmageiros@acg.edu    
 
 kind reminder: 

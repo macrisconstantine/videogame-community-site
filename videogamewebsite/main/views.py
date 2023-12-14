@@ -2,22 +2,22 @@ from django.shortcuts import render, get_object_or_404
 from .models import Genre, VideoGame, SubGenre
 from django.db.models.query_utils import Q
 
-# Create your views here.
-# def homepage(request):
-#     return render(request, "main/home.html")
+from django.http import JsonResponse
 
-# def games_by_genre(request, genre_slug):
-#     genre = get_object_or_404(Genre, slug=genre_slug)
-#     games = VideoGame.objects.filter(genre=genre)
-#     genres = Genre.objects.all()  # You may want to pass this for navigation
-#     return render(request, 'games_by_genre.html', {'genre': genre, 'games': games, 'genres': genres})
+def rate_game(request, game_id, rating):
+    # Assuming you have a VideoGame model with a ForeignKey to User
+    user = request.user
+    game = VideoGame.objects.get(id=game_id)
 
-# def games_by_subgenre(request, genre_slug, subgenre_slug):
-#     genre = get_object_or_404(Genre, slug=genre_slug)
-#     subgenre = get_object_or_404(SubGenre, slug=subgenre_slug)
-#     games = VideoGame.objects.filter(genre=genre, subgenre=subgenre)
-#     genres = Genre.objects.all()  # You may want to pass this for navigation
-#     return render(request, 'games_by_subgenre.html', {'genre': genre, 'subgenre': subgenre, 'games': games, 'genres': genres})
+    # Update the game's rating
+    game.total_ratings += 1
+    game.average_rating = ((game.average_rating * (game.total_ratings - 1)) + int(rating)) / game.total_ratings
+    game.save()
+
+    # You might want to store the user's rating in a separate model if you want to prevent multiple ratings by the same user.
+
+    return JsonResponse({'message': 'Rating submitted successfully'})
+
 def search(request):
     search_query = request.GET.get('search_query', '')
     
