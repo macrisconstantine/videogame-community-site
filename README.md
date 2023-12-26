@@ -1,9 +1,9 @@
 ﻿# videogame-community-site
 
 
-## admin username: test
-## admin password: test
-## admin email:    test@test.test
+### admin username: test
+### admin password: test
+### admin email:    test@test.test
 
 ## user username:  Leonardos
 ## user password:  djangoishard
