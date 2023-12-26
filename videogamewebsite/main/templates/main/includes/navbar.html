@@ -1,9 +1,9 @@
 {% load static %}
 {% comment %} Navbar file included in header and extended to entire website {% endcomment %}
 <header class="site-header">
-    
+
     <nav class="navbar navbar-expand-md navbar-color mb-3 p-3 ">
-        
+
         <div class="container ">
 
             <!-- Navbar Left Side -->
@@ -11,16 +11,16 @@
                 <img class="navbar-brand" style="width: 70px; height: 75px" src="{% static 'images/favicon.png' %}" alt="logo">
             </a>
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/"><span  style="font-size:2.8em; font-family: fantasy;">Game Cave</span></a>
+                <a class="nav-item nav-link" style="font-size:2.8em; font-family: Impact, fantasy"href="/"><span class="navbar-nav" >Game Cave</span></a>
             </div>
-            
+
             {% comment %} Collapses into dropdown menu when scale is too small {% endcomment %}
             <button aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler ml-auto float-right btncolor" data-target="#navbarToggle" data-toggle="collapse" type="button">
                 <i class="fas fa-bars fa-2x"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
-        
+
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav ml-auto">
 
@@ -39,7 +39,7 @@
                             </div>
                             <div class="row-auto d-flex justify-content-end">
                                 <a class="nav-item nav-link" href="{%url 'profile' user.username %}">
-                                    <i class="fas fa-user"> </i>&nbsp Welcome, {{user.username}} 
+                                    <i class="fas fa-user"> </i>&nbsp Welcome, {{user.username}}
                                 </a>
                             </div>
                         </div>

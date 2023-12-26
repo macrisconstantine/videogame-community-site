@@ -1,4 +1,6 @@
 from django.shortcuts import redirect
+
+# Checks to make sure user is not authenticated
 def user_not_authenticated(function=None, redirect_url='/'):
     
     def decorator(view_func):

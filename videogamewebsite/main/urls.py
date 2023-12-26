@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# Urls to handle view functionality for the main app
 urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('search/', views.search, name='search'),
