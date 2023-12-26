@@ -1,7 +1,7 @@
 {% extends "main/header.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="content-section col-lg-12 col-md-12 col-sm-12 tutorial-style " style="min-height:65vh; border-radius:3vh;">
+<div class="content-section m-5" style="min-height:65vh; border-radius:3vh;">
     <legend class="border-bottom mb-4">Profile Information:</legend>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}

@@ -7,12 +7,12 @@
     <div class="col-auto">
         <!-- Game image and rating information -->
         <div class="row-auto imgBox mt-3 mb-3">
-            <img style="border-radius: 10px; width: 300px; height: 260px;" src="{{ object.image.url }}">
+            <img style="border-radius: 10px; width: 300px; height: 300px;" src="{{ object.image.url }}">
         </div>
-        <div class="row-auto mt-4 mr-3">
+        <div class="row-auto mt-4 mr-1">
             <!-- Display the current average rating -->
-            <p class="h3 title-style text-muted pl-1" style="font-family: fantasy;"> Total Ratings: {{ object.total_ratings }} </p>
-            <p class="h3 title-style text-muted pl-1" style="font-family: fantasy;"> Average Rating: {{ object.average_rating }}/5 </p>
+            <p class="title-style h3 pl-1" style="font-family: fantasy;"> Total Ratings: {{ object.total_ratings }} </p>
+            <p class="title-style h3 pl-1" style="font-family: fantasy;"> Average Rating: {{ object.average_rating }}/5 </p>
 
             <!-- Display stars for rating -->
             <div id="star-rating-container">
