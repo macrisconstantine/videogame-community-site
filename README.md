@@ -1,5 +1,5 @@
 ﻿# videogame-community-site
-- This website was the final project for the course Internet Programming.
+This website was the final project for the course Internet Programming.
 ## Description
 - This website lets you browse some popular videogame titles as a guest, user, or as an admin with access to a custom admin panel.
 - The custom admin panel allows for the creation of new categories and the modification of titles and addition of new titles. 
