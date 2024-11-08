@@ -10,8 +10,8 @@ This website was the final project for the course Internet Programming.
 - The repo can also be cloned/downloaded to play with/examine the code directly.
 ## Tools Used
 - This project made use of HTML, CSS, JavaScript, Bootstrap, Django, and the PythonAnywhere website hosting service.
-
-
-### user username:  Leonardos
-### user password:  djangoishard
-### user email:     lmageiros@acg.edu    
+  
+## Login Credentials
+- user username:  Leonardos
+- user password:  djangoishard
+- user email:     lmageiros@acg.edu    
