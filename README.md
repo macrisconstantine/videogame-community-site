@@ -12,5 +12,4 @@ This website was the final project for the course Internet Programming.
 - This project made use of HTML, CSS, JavaScript, Bootstrap, Django, and the PythonAnywhere website hosting service.
 ## Login Credentials
 - user username:  Leonardos
-- user password:  djangoishard
-- user email:     lmageiros@acg.edu    
+- user password:  djangoishard  
