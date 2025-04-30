@@ -7,7 +7,7 @@ This website was the final project for the course Internet Programming.
 - A rating system displays the average rating of all user ratings for each title.
 ## Visit the Page
 - The page can be visited from the website link provided in the website section to the right.
-- The repo can also be cloned/downloaded to play with/examine the code directly.
+- The repo can also be cloned/downloaded if you'd like to mess with the code yourself.
 ## Tools Used
 - This project made use of HTML, CSS, JavaScript, Bootstrap, Django, and the PythonAnywhere website hosting service.
 ## Login Credentials
